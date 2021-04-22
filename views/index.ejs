@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <!--INCLUI PARTIALS DE CABEÇALHO-->
+    <%- include ('partials/header.ejs') %>
+</head>
+
+<body>
+    <header>
+        <!--INCLUI PARTIALS DE NAVBAR-->
+        <%- include ('partials/navbar.ejs') %>
+    </header>
+
+
+    <div class="container">
+        <!--RECEBE DADOS DO BACKEND E EXIBE NO FRONT-->
+        <div class="m-5 p-5 text-center">
+            <h2>Alguma dúvida?</h2>
+            <a href="/perguntar" class="btn btn-primary">Dúvidas</a>
+        </div>
+
+
+        <% perguntas.forEach(function(pergunta) { %>
+
+            <div class="card m-3">
+                <div class="card-body">
+                    <h4>
+                        <%= pergunta.titulo %>
+                    </h4>
+                </div>
+                <div class="card-footer">
+                    <a href="/pergunta/<%= pergunta.id %>">
+                        <button class="btn btn-primary">Responder</button>
+                    </a>
+                </div>
+            </div>
+
+            <% }); %>
+    </div>
+
+
+</body>
+
+<footer>
+    <!--INCLUI PARTIALS DE RODAPE-->
+    <%- include ('partials/footer.ejs') %>
+</footer>
+
+</html>
